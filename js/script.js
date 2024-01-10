@@ -30,11 +30,46 @@ console.log('JS OK');
 
 //todo ----------------------------------------------------------------------------- \\
 
+//? --------------------- FUNZIONI --------------------- \\
+// Funzione per creare una cella
+const makeCell = () => {
+    // Creo la cella
+    let cell = document.createElement('div');
+
+    // Aggiungo la classe cell
+    cell.className = 'cell';
+
+    // Specifico cosa restituire
+    return cell;
+}
+
 // Informazioni note
 const rows = 10;
 const cols = 10;
+const totalCells = rows * cols;
 
 //*  Recupero gli elementi dal DOM
 const rangeSelect = document.getElementById('range-select');
 const confirmButton = document.getElementById('confirm-button');
 const gridElement = document.querySelector('section .grid');
+
+//* L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
+confirmButton.addEventListener('click', function () {
+
+    //! Blocco il comportamento di default
+    rangeSelect.addEventListener('submit', function (e) {
+        e.preventDefault();
+    })
+
+    //* Genero una griglia di gioco con 10 righe e 10 colonne
+    for (let i = 0; i < totalCells; i++) {
+        if (i === totalCells) { break; }
+        // Passo la funzione 'crea cella' in una variabile per utilizzarla nel ciclo
+        const cell = makeCell();
+
+        // Stampo la cella in pagina
+        gridElement.appendChild(cell);
+    }
+    confirmButton.disabled = true;
+})
+
