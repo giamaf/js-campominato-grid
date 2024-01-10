@@ -78,9 +78,12 @@ confirmButton.addEventListener('click', function () {
 
     //! Validazione
     if (rangeSelect.value == 0) {
-        alert('Devi selezionare una grandezza');
+        rangeSelect.classList.add('is-invalid');
         return;
     } else {
+        rangeSelect.classList.remove('is-invalid');
+        rangeSelect.classList.add('is-valid');
+
         //* Genero una griglia di gioco con 10 righe e 10 colonne
         for (let i = 1; i <= totalCells; i++) {
 

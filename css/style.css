@@ -61,17 +61,14 @@ main section {
 }
 
 .big {
-    height: calc(100% / 10);
     width: calc(100% / 10);
 }
 
 .medium {
-    height: calc(100% / 9);
     width: calc(100% / 9);
 }
 
 .small {
-    height: calc(100% / 7);
     width: calc(100% / 7);
 }
 
