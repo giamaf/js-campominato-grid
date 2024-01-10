@@ -37,12 +37,15 @@ const makeCell = (number) => {
     let cell = document.createElement('div');
 
     // Aggiungo la classe cell
+    cell.className = 'cell';
+
+    // Aggiungo il numero di righe e colonne in base alla selezione dell'utente
     if (rangeSelect.value == 10) {
-        cell.className = 'cell';
+        cell.classList.add('big');
     } else if (rangeSelect.value == 9) {
-        cell.className = 'cell', 'medium';
+        cell.classList.add('medium');
     } else if (rangeSelect.value == 7) {
-        cell.className = 'cell', 'small';
+        cell.classList.add('small');
     }
 
     //Aggiungo un parametro numero da stampare nella cella
@@ -75,7 +78,6 @@ confirmButton.addEventListener('click', function () {
         alert('Devi selezionare una grandezza');
         return;
     } else {
-
         //* Genero una griglia di gioco con 10 righe e 10 colonne
         for (let i = 1; i <= totalCells; i++) {
 
@@ -98,6 +100,7 @@ confirmButton.addEventListener('click', function () {
         }
         confirmButton.disabled = true;
     }
+
 })
 
 
