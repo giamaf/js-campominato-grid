@@ -73,7 +73,19 @@ confirmButton.addEventListener('click', function () {
 
         // Stampo la cella in pagina
         gridElement.appendChild(cell);
+
+        // Al click sulla cella, stampiamo il numero della cella cliccata in console, 
+        // poi coloriamo la cella d'azzurro!
+        cell.addEventListener('click', function () {
+            // Stampo numero in console
+            console.log(i);
+
+            // Switch colore
+            cell.classList.toggle('lightblue');
+        })
     }
     confirmButton.disabled = true;
 })
+
+
 
