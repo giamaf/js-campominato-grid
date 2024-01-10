@@ -37,7 +37,13 @@ const makeCell = (number) => {
     let cell = document.createElement('div');
 
     // Aggiungo la classe cell
-    cell.className = 'cell';
+    if (rangeSelect.value == 10) {
+        cell.className = 'cell';
+    } else if (rangeSelect.value == 9) {
+        cell.className = 'cell', 'medium';
+    } else if (rangeSelect.value == 7) {
+        cell.className = 'cell', 'small';
+    }
 
     //Aggiungo un parametro numero da stampare nella cella
     cell.innerText = number;
@@ -45,11 +51,6 @@ const makeCell = (number) => {
     // Specifico cosa restituire
     return cell;
 }
-
-// Informazioni note
-const rows = 10;
-const cols = 10;
-const totalCells = rows * cols;
 
 //*  Recupero gli elementi dal DOM
 const rangeSelect = document.getElementById('range-select');
@@ -64,28 +65,39 @@ confirmButton.addEventListener('click', function () {
         e.preventDefault();
     })
 
-    //* Genero una griglia di gioco con 10 righe e 10 colonne
-    for (let i = 1; i <= totalCells; i++) {
+    // Informazioni note
+    let rows = rangeSelect.value;
+    let cols = rangeSelect.value;
+    const totalCells = rows * cols;
 
-        // Passo la funzione 'crea cella' in una variabile per utilizzarla nel ciclo
-        // inserendo come argomento la i per stampare il numero durante il loop
-        const cell = makeCell(i);
+    //! Validazione
+    if (rangeSelect.value == 0) {
+        alert('Devi selezionare una grandezza');
+        return;
+    } else {
 
-        // Stampo la cella in pagina
-        gridElement.appendChild(cell);
+        //* Genero una griglia di gioco con 10 righe e 10 colonne
+        for (let i = 1; i <= totalCells; i++) {
 
-        // Al click sulla cella, stampiamo il numero della cella cliccata in console, 
-        // poi coloriamo la cella d'azzurro!
-        cell.addEventListener('click', function () {
-            // Stampo numero in console
-            console.log(i);
+            // Passo la funzione 'crea cella' in una variabile per utilizzarla nel ciclo
+            // inserendo come argomento la i per stampare il numero durante il loop
+            const cell = makeCell(i);
 
-            // Switch colore
-            cell.classList.toggle('lightblue');
-        })
+            // Stampo la cella in pagina
+            gridElement.appendChild(cell);
+
+            // Al click sulla cella, stampiamo il numero della cella cliccata in console, 
+            // poi coloriamo la cella d'azzurro!
+            cell.addEventListener('click', function () {
+                // Stampo numero in console
+                console.log(i);
+
+                // Switch colore
+                cell.classList.toggle('lightblue');
+            })
+        }
+        confirmButton.disabled = true;
     }
-    confirmButton.disabled = true;
 })
-
 
 
