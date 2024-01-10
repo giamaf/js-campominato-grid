@@ -63,6 +63,16 @@ main section {
     justify-content: center;
 }
 
+.medium {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+
+.small {
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+}
+
 .lightblue {
     background-color: lightskyblue;
 }
