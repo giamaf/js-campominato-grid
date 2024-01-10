@@ -52,8 +52,6 @@ main section {
 }
 
 .grid .cell {
-    height: calc(100% / 10);
-    width: calc(100% / 10);
     border: 1px solid black;
     cursor: pointer;
     color: black;
@@ -61,6 +59,11 @@ main section {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.big {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
 }
 
 .medium {
