@@ -55,7 +55,6 @@ main section {
     border: 1px solid black;
     cursor: pointer;
     color: black;
-    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
