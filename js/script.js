@@ -32,12 +32,15 @@ console.log('JS OK');
 
 //? --------------------- FUNZIONI --------------------- \\
 // Funzione per creare una cella
-const makeCell = () => {
+const makeCell = (number) => {
     // Creo la cella
     let cell = document.createElement('div');
 
     // Aggiungo la classe cell
     cell.className = 'cell';
+
+    //Aggiungo un parametro numero da stampare nella cella
+    cell.innerText = number;
 
     // Specifico cosa restituire
     return cell;
@@ -62,10 +65,11 @@ confirmButton.addEventListener('click', function () {
     })
 
     //* Genero una griglia di gioco con 10 righe e 10 colonne
-    for (let i = 0; i < totalCells; i++) {
-        if (i === totalCells) { break; }
+    for (let i = 1; i <= totalCells; i++) {
+
         // Passo la funzione 'crea cella' in una variabile per utilizzarla nel ciclo
-        const cell = makeCell();
+        // inserendo come argomento la i per stampare il numero durante il loop
+        const cell = makeCell(i);
 
         // Stampo la cella in pagina
         gridElement.appendChild(cell);
