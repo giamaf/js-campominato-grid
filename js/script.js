@@ -73,6 +73,9 @@ confirmButton.addEventListener('click', function () {
     let cols = rangeSelect.value;
     const totalCells = rows * cols;
 
+    // Ripulisco la pagina per poter stampare
+    gridElement.innerHTML = '';
+
     //! Validazione
     if (rangeSelect.value == 0) {
         alert('Devi selezionare una grandezza');
@@ -98,9 +101,7 @@ confirmButton.addEventListener('click', function () {
                 cell.classList.toggle('lightblue');
             })
         }
-        confirmButton.disabled = true;
     }
-
 })
 
 
